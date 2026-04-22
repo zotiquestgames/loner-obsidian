@@ -28,7 +28,11 @@ This guide covers every feature of the plugin. It assumes you have Loner 4e; ref
 
 The plugin stores all game state in the YAML frontmatter of a single Protagonist note. Nothing is saved in the plugin's own config — your note is the record.
 
-### Creating the note
+### Using the Generate command (recommended)
+
+Run `Loner: Generate Protagonist Note` from the command palette. A guided form collects all fields (name, concept, skills, gear, frailties, stats), then either creates a new note or inserts the frontmatter into the active note. It also automatically sets the protagonist path in settings.
+
+### Creating the note manually
 
 Create any note in your vault and add this frontmatter block at the top. Fields you leave out default to empty/zero.
 
@@ -37,13 +41,14 @@ Create any note in your vault and add this frontmatter block at the top. Fields 
 loner_protagonist: true
 name: "Zahra Nakajima"
 concept: "Witty Street Cat"
-frailty: "Merciful"
-skills:
+skill:
   - "Streetwise"
   - "Nimble"
 gear:
   - "Knife"
   - "Low O2 Supplement"
+frailty:
+  - "Merciful"
 goal: "Obtain unknown technology to save her planet"
 motive: "She feels responsible for her home's survival"
 nemesis: "The Naturalist Order"
@@ -74,11 +79,11 @@ The sidebar is divided into collapsible sections. Every edit writes back to fron
 
 ### Section 1 — Identity
 
-Inline text fields for: Name, Concept, Frailty, Goal, Motive, Nemesis.
+Inline text fields for: Name, Concept, Goal, Motive, Nemesis.
 
 ### Section 2 — Skills & Gear
 
-Two Skills and two Gear items by default. Use the **+** button to add more after advancement — there is no hard cap.
+Three editable lists: **Skills**, **Gear**, and **Frailties**. All work identically — use the **+** button to add entries, **×** to remove them. There is no cap on any list.
 
 ### Section 3 — Luck
 
@@ -420,8 +425,7 @@ A five-step guided wizard for post-session bookkeeping.
 
 What did the protagonist learn or gain?
 
-- **Add Skill / Add Gear** — appends to the frontmatter arrays immediately.
-- **Add Frailty** — replaces the current frailty.
+- **Add Skill / Add Gear / Add Frailty** — each appends to its respective frontmatter array immediately.
 - **Modify Existing Trait** — dropdown of current skills and gear + new value field.
 - **New Nemesis** — sets the nemesis field.
 
@@ -517,7 +521,7 @@ These commands are available regardless of mode, but show a notice and return ea
 Reads the active Protagonist note and inserts a `[PC:...]` tag into the active note:
 
 ```
-[PC:Zahra Nakajima|concept:Witty Street Cat|skill:Streetwise,Nimble|frailty:Merciful|gear:Knife,Low O2 Supplement|luck:6]
+[PC:Zahra Nakajima|concept:Witty Street Cat|skill:Streetwise,Nimble|frailty:Merciful,Overconfident|gear:Knife,Low O2 Supplement|luck:6]
 [Track:Expose Leton 2/4]
 [Clock:Physical 1/3]
 ```
@@ -579,9 +583,9 @@ Clears the in-memory sets of mentioned NPCs and Locations. Run at the start of e
 loner_protagonist: true     # required — marks this note as the protagonist
 name: string
 concept: string
-frailty: string
-skills: string[]
-gear: string[]
+skill: string[]             # Lonelog PC tag category: skill:
+gear: string[]              # Lonelog PC tag category: gear:
+frailty: string[]           # Lonelog PC tag category: frailty:
 goal: string
 motive: string
 nemesis: string
