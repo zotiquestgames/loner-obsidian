@@ -124,7 +124,7 @@ export default class LonerPlugin extends Plugin {
     this.twistCounterEl = this.addStatusBarItem();
     this.twistCounterEl.addClass('loner-twist-counter');
     this.twistCounterEl.setText('🔄 Twist: 0/3');
-    this.twistCounterEl.title = 'Loner 4e Twist Counter';
+    this.twistCounterEl.title = 'Loner Assistant Twist Counter';
 
     // Initialize twist counter from frontmatter if protagonist is configured
     if (this.settings.protagonistNotePath) {
@@ -203,7 +203,7 @@ export default class LonerPlugin extends Plugin {
       id: 'lonelog-insert-npc-tag',
       name: 'Loner: Insert NPC Tag',
       callback: () => {
-        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner 4e settings.'); return; }
+        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner Assistant settings.'); return; }
         new InsertNpcTagModal(this.app, this).open();
       },
     });
@@ -212,7 +212,7 @@ export default class LonerPlugin extends Plugin {
       id: 'lonelog-insert-location-tag',
       name: 'Loner: Insert Location Tag',
       callback: () => {
-        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner 4e settings.'); return; }
+        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner Assistant settings.'); return; }
         new InsertLocationTagModal(this.app, this).open();
       },
     });
@@ -221,7 +221,7 @@ export default class LonerPlugin extends Plugin {
       id: 'lonelog-start-session',
       name: 'Loner: Start Session Log',
       callback: () => {
-        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner 4e settings.'); return; }
+        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner Assistant settings.'); return; }
         new StartSessionLogModal(this.app, this).open();
       },
     });
@@ -230,7 +230,7 @@ export default class LonerPlugin extends Plugin {
       id: 'lonelog-reset-session',
       name: 'Loner: Reset Lonelog Session Tracking',
       callback: () => {
-        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner 4e settings.'); return; }
+        if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner Assistant settings.'); return; }
         this.lonelogSession.mentionedNpcs.clear();
         this.lonelogSession.mentionedLocations.clear();
         new Notice('Lonelog session tracking reset.');
@@ -280,7 +280,7 @@ export default class LonerPlugin extends Plugin {
     try {
       n = await this.protagonistSheet.getTwistCounter();
     } catch {
-      new Notice('Loner 4e: No protagonist note configured.');
+      new Notice('Loner Assistant:No protagonist note configured.');
       return { triggered: false };
     }
 
@@ -353,13 +353,13 @@ export default class LonerPlugin extends Plugin {
   }
 
   private async lonelogExportProtagonist(): Promise<void> {
-    if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner 4e settings.'); return; }
+    if (!this.settings.useLonelog) { new Notice('Enable Lonelog in Loner Assistant settings.'); return; }
     try {
       const data = await this.protagonistSheet.read();
       const tag = this.lonelogFormatter.formatProtagonistTag(data);
       await this.insertIntoActiveNote(tag);
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant:' + (e as Error).message);
     }
   }
 }
@@ -428,7 +428,7 @@ class LonerSettingTab extends PluginSettingTab {
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl('h2', { text: 'Loner 4e Settings' });
+    containerEl.createEl('h2', { text: 'Loner Assistant Settings' });
 
     new Setting(containerEl)
       .setName('Protagonist note path')

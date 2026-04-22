@@ -225,7 +225,7 @@ export class LivingWorldModal extends LonerModal {
         new Notice(`Event note created: ${path}`);
         this.app.workspace.getLeaf(false).openFile(file);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -284,7 +284,7 @@ export class LivingWorldModal extends LonerModal {
         input.value = '';
         new Notice(`${label}: "${val}" added.`);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     };
     btn.addEventListener('click', doAdd);

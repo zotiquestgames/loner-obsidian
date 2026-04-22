@@ -1,6 +1,6 @@
 {
-  "id": "loner-4e",
-  "name": "Loner 4e",
+  "id": "loner-assistant",
+  "name": "Loner Assistant",
   "version": "0.1.0",
   "minAppVersion": "1.4.0",
   "description": "Obsidian plugin for playing Loner 4e solo tabletop RPG.",

@@ -10,7 +10,7 @@ export abstract class LonerModal extends Modal {
     try {
       await this.plugin.insertIntoActiveNote(content);
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   }
 

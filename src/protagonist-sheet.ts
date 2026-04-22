@@ -6,7 +6,7 @@ export class ProtagonistSheet {
 
   private getFile(): TFile {
     const path = this.settings.protagonistNotePath;
-    if (!path) throw new Error('No Protagonist note configured. Set a path in Loner 4e Settings.');
+    if (!path) throw new Error('No Protagonist note configured. Set a path in Loner Assistant Settings.');
     const file = this.app.vault.getAbstractFileByPath(path);
     if (!(file instanceof TFile)) throw new Error(`Protagonist note not found: "${path}"`);
     return file;

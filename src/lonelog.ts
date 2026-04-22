@@ -386,7 +386,7 @@ export class StartSessionLogModal extends LonerModal {
         this.plugin.app.workspace.getLeaf(false).openFile(file);
         new Notice(`Session log started: ${targetPath}`);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
 
       this.close();

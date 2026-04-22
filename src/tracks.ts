@@ -73,7 +73,7 @@ function renderChallengeList(section: HTMLElement, plugin: LonerPlugin, tracks: 
         const updatedTracks = await plugin.protagonistSheet.getChallengeTracks();
         renderChallengeList(section, plugin, updatedTracks);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -121,7 +121,7 @@ function renderChallengeTrackRow(section: HTMLElement, plugin: LonerPlugin, trac
       try {
         await plugin.protagonistSheet.updateChallengeTrack(track.id, [...currentBoxes]);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
   }
@@ -151,7 +151,7 @@ function renderChallengeTrackRow(section: HTMLElement, plugin: LonerPlugin, trac
       await plugin.protagonistSheet.removeChallengeTrack(track.id);
       row.remove();
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 }
@@ -171,7 +171,7 @@ export async function renderChallengeTrackBlock(
   try {
     tracks = await plugin.protagonistSheet.getChallengeTracks();
   } catch (e) {
-    el.createEl('p', { text: 'Loner 4e: ' + (e as Error).message, cls: 'loner-error' });
+    el.createEl('p', { text: 'Loner Assistant: ' + (e as Error).message, cls: 'loner-error' });
     return;
   }
 
@@ -245,7 +245,7 @@ function renderStatusList(section: HTMLElement, plugin: LonerPlugin, tracks: Sta
         const updated = await plugin.protagonistSheet.getStatusTracks();
         renderStatusList(section, plugin, updated);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -283,7 +283,7 @@ function renderStatusTrackRow(section: HTMLElement, plugin: LonerPlugin, track: 
       try {
         await plugin.protagonistSheet.updateStatusTrack(track.id, [...currentBoxes]);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
   }
@@ -305,7 +305,7 @@ function renderStatusTrackRow(section: HTMLElement, plugin: LonerPlugin, track: 
       await plugin.protagonistSheet.updateStatusTrack(track.id, [...currentBoxes]);
       plugin.refreshProtagonistView();
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 
@@ -326,7 +326,7 @@ function renderStatusTrackRow(section: HTMLElement, plugin: LonerPlugin, track: 
       await plugin.protagonistSheet.removeStatusTrack(track.id);
       row.remove();
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 }
@@ -346,7 +346,7 @@ export async function renderStatusTrackBlock(
   try {
     tracks = await plugin.protagonistSheet.getStatusTracks();
   } catch (e) {
-    el.createEl('p', { text: 'Loner 4e: ' + (e as Error).message, cls: 'loner-error' });
+    el.createEl('p', { text: 'Loner Assistant: ' + (e as Error).message, cls: 'loner-error' });
     return;
   }
 
@@ -387,7 +387,7 @@ function renderInlineTrack(
         }
         plugin.refreshProtagonistView();
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
   }

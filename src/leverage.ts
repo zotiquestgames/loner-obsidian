@@ -69,7 +69,7 @@ function renderEmptyState(section: HTMLElement, plugin: LonerPlugin): void {
         }
         renderState(section, plugin, val);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     };
 
@@ -103,7 +103,7 @@ function renderHeldState(section: HTMLElement, plugin: LonerPlugin, leverage: st
       renderState(section, plugin, null);
       plugin.refreshProtagonistView();
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 
@@ -122,7 +122,7 @@ function renderHeldState(section: HTMLElement, plugin: LonerPlugin, leverage: st
       renderState(section, plugin, null);
       plugin.refreshProtagonistView();
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 }

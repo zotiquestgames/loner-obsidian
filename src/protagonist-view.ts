@@ -71,11 +71,11 @@ export class ProtagonistView extends ItemView {
 
   private renderNoProtagonistGuard(container: HTMLElement, msg?: string): void {
     const div = container.createDiv({ cls: 'loner-no-protagonist' });
-    div.createEl('p', { text: msg ?? 'No Protagonist note set. Configure in Settings → Loner 4e.' });
+    div.createEl('p', { text: msg ?? 'No Protagonist note set. Configure in Settings → Loner Assistant.' });
     const btn = div.createEl('button', { text: 'Open Settings', cls: 'loner-btn' });
     btn.addEventListener('click', () => {
       (this.app as any).setting.open();
-      (this.app as any).setting.openTabById('loner-4e');
+      (this.app as any).setting.openTabById('loner-assistant');
     });
   }
 
@@ -102,7 +102,7 @@ export class ProtagonistView extends ItemView {
         try {
           await this.plugin.protagonistSheet.write({ [key]: input.value });
         } catch (e) {
-          new Notice('Loner 4e: ' + (e as Error).message);
+          new Notice('Loner Assistant: ' + (e as Error).message);
         }
       });
     }
@@ -142,13 +142,13 @@ export class ProtagonistView extends ItemView {
         input.value = item;
         input.addEventListener('blur', async () => {
           currentItems[i] = input.value;
-          try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+          try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
         });
         const del = row.createEl('button', { text: '×', cls: 'loner-btn loner-btn--icon' });
         del.addEventListener('click', async () => {
           currentItems.splice(i, 1);
           renderItems();
-          try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+          try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
         });
       });
     };
@@ -159,7 +159,7 @@ export class ProtagonistView extends ItemView {
     addBtn.addEventListener('click', async () => {
       currentItems.push('');
       renderItems();
-      try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+      try { await onUpdate([...currentItems]); } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
     });
   }
 
@@ -180,7 +180,7 @@ export class ProtagonistView extends ItemView {
             await this.plugin.protagonistSheet.setLuck(i + 1);
             renderPips(i + 1, luckMax);
           } catch (e) {
-            new Notice('Loner 4e: ' + (e as Error).message);
+            new Notice('Loner Assistant: ' + (e as Error).message);
           }
         });
       }
@@ -196,7 +196,7 @@ export class ProtagonistView extends ItemView {
         await this.plugin.protagonistSheet.setLuck(data.luck_max);
         renderPips(data.luck_max, data.luck_max);
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -214,7 +214,7 @@ export class ProtagonistView extends ItemView {
         await this.plugin.protagonistSheet.write({ luck_max: currentMax });
         const newLuck = await this.plugin.protagonistSheet.getLuck();
         renderPips(Math.min(newLuck, currentMax), currentMax);
-      } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+      } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
     });
     plusBtn.addEventListener('click', async () => {
       currentMax++;
@@ -223,7 +223,7 @@ export class ProtagonistView extends ItemView {
         await this.plugin.protagonistSheet.write({ luck_max: currentMax });
         const newLuck = await this.plugin.protagonistSheet.getLuck();
         renderPips(newLuck, currentMax);
-      } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+      } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
     });
   }
 
@@ -279,7 +279,7 @@ export class ProtagonistView extends ItemView {
         del.addEventListener('click', async () => {
           currentTags.splice(i, 1);
           renderTags();
-          try { await onUpdate([...currentTags]); } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+          try { await onUpdate([...currentTags]); } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
         });
       });
     };
@@ -296,7 +296,7 @@ export class ProtagonistView extends ItemView {
       currentTags.push(val);
       addInput.value = '';
       renderTags();
-      try { await onUpdate([...currentTags]); } catch (e) { new Notice('Loner 4e: ' + (e as Error).message); }
+      try { await onUpdate([...currentTags]); } catch (e) { new Notice('Loner Assistant: ' + (e as Error).message); }
     };
 
     addBtn.addEventListener('click', doAdd);
@@ -325,7 +325,7 @@ export class ProtagonistView extends ItemView {
       try {
         await this.plugin.incrementTwistCounter();
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -336,7 +336,7 @@ export class ProtagonistView extends ItemView {
         this.plugin.updateTwistStatusBar(0);
         this.plugin.refreshProtagonistView();
       } catch (e) {
-        new Notice('Loner 4e: ' + (e as Error).message);
+        new Notice('Loner Assistant: ' + (e as Error).message);
       }
     });
 
@@ -346,7 +346,7 @@ export class ProtagonistView extends ItemView {
         try {
           await this.plugin.incrementTwistCounter();
         } catch (e) {
-          new Notice('Loner 4e: ' + (e as Error).message);
+          new Notice('Loner Assistant: ' + (e as Error).message);
         }
       });
     }

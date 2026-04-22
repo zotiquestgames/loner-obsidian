@@ -192,7 +192,7 @@ function renderResult(
               new Notice('Conflict lost. Interpret consequences.', 8000);
             }
           } catch (e) {
-            new Notice('Loner 4e: ' + (e as Error).message);
+            new Notice('Loner Assistant: ' + (e as Error).message);
           }
         });
       } else {
@@ -240,7 +240,7 @@ function renderResult(
       }
       await plugin.insertIntoActiveNote(content);
     } catch (e) {
-      new Notice('Loner 4e: ' + (e as Error).message);
+      new Notice('Loner Assistant: ' + (e as Error).message);
     }
   });
 }
