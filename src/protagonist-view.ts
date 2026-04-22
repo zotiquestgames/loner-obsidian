@@ -113,8 +113,8 @@ export class ProtagonistView extends ItemView {
   private renderSkillsGearSection(container: HTMLElement, data: ProtagonistData): void {
     const section = this.makeSection(container, 'Skills & Gear');
 
-    this.renderStringList(section, 'Skills', data.skills, async (arr) => {
-      await this.plugin.protagonistSheet.write({ skills: arr });
+    this.renderStringList(section, 'Skills', data.skill, async (arr) => {
+      await this.plugin.protagonistSheet.write({ skill: arr });
     });
 
     this.renderStringList(section, 'Gear', data.gear, async (arr) => {

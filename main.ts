@@ -10,6 +10,7 @@ import { LivingWorldModal } from './src/living-world';
 import { LonelogFormatter, LonelogSession, insertLonelogIntoNote, InsertNpcTagModal, InsertLocationTagModal, StartSessionLogModal } from './src/lonelog';
 import { renderOracleWidget } from './src/oracle-widget';
 import { renderChallengeTrackBlock, renderStatusTrackBlock } from './src/tracks';
+import { GenerateProtagonistModal } from './src/protagonist-wizard';
 
 // ─── Shared Types ────────────────────────────────────────────────────────────
 
@@ -60,7 +61,7 @@ export interface ProtagonistData {
   name: string;
   concept: string;
   frailty: string;
-  skills: string[];
+  skill: string[];
   gear: string[];
   goal: string;
   motive: string;
@@ -159,6 +160,12 @@ export default class LonerPlugin extends Plugin {
       id: 'open-protagonist-sheet',
       name: 'Open Protagonist Sheet',
       callback: () => this.activateProtagonistView(),
+    });
+
+    this.addCommand({
+      id: 'generate-protagonist',
+      name: 'Loner: Generate Protagonist Note',
+      callback: () => new GenerateProtagonistModal(this.app, this).open(),
     });
 
     this.addCommand({

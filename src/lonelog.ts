@@ -79,7 +79,7 @@ export class LonelogFormatter {
   formatProtagonistTag(data: ProtagonistData): string {
     const parts = [`PC:${data.name}`];
     if (data.concept) parts.push(`concept:${data.concept}`);
-    if (data.skills?.length) parts.push(`skill:${data.skills.join(',')}`);
+    if (data.skill?.length) parts.push(`skill:${data.skill.join(',')}`);
     if (data.frailty) parts.push(`frailty:${data.frailty}`);
     if (data.gear?.length) parts.push(`gear:${data.gear.join(',')}`);
     parts.push(`luck:${data.luck}`);

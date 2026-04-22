@@ -933,3 +933,52 @@
 .callout[data-callout="adventure-maker"] {
   --callout-color: 0, 188, 212;
 }
+
+/* ── Protagonist Wizard ───────────────────────────────────────────────────── */
+
+.loner-wizard-desc {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-bottom: 12px;
+}
+
+.loner-wizard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loner-wizard-list-section {
+  margin-bottom: 6px;
+}
+
+.loner-wizard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.loner-wizard-list-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.loner-wizard-hint {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.loner-wizard-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.loner-field-input--short {
+  width: 70px;
+}

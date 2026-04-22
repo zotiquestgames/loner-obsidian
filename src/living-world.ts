@@ -52,9 +52,9 @@ export class LivingWorldModal extends LonerModal {
     this.plugin.protagonistSheet.read().then(data => {
       // Add Skill
       this.makeAddField(container, 'Add Skill', async (val) => {
-        const newSkills = [...(data.skills || []), val];
-        this.pending.protagonist.skills = newSkills;
-        await this.plugin.protagonistSheet.write({ skills: newSkills });
+        const newSkills = [...(data.skill || []), val];
+        this.pending.protagonist.skill = newSkills;
+        await this.plugin.protagonistSheet.write({ skill: newSkills });
       });
 
       // Add Gear
@@ -78,7 +78,7 @@ export class LivingWorldModal extends LonerModal {
 
       // Populate with current skills + gear
       const allTraits = [
-        ...data.skills.map(s => `skill: ${s}`),
+        ...data.skill.map(s => `skill: ${s}`),
         ...data.gear.map(g => `gear: ${g}`),
       ];
       for (const t of allTraits) {
@@ -93,8 +93,8 @@ export class LivingWorldModal extends LonerModal {
         const newVal = newValInput.value.trim();
         if (!newVal) return;
         if (type === 'skill') {
-          const idx = data.skills.indexOf(oldVal);
-          if (idx !== -1) { data.skills[idx] = newVal; await this.plugin.protagonistSheet.write({ skills: data.skills }); }
+          const idx = data.skill.indexOf(oldVal);
+          if (idx !== -1) { data.skill[idx] = newVal; await this.plugin.protagonistSheet.write({ skill: data.skill }); }
         } else if (type === 'gear') {
           const idx = data.gear.indexOf(oldVal);
           if (idx !== -1) { data.gear[idx] = newVal; await this.plugin.protagonistSheet.write({ gear: data.gear }); }

@@ -22,7 +22,7 @@ export class ProtagonistSheet {
       name: fm.name ?? '',
       concept: fm.concept ?? '',
       frailty: fm.frailty ?? '',
-      skills: Array.isArray(fm.skills) ? fm.skills : [],
+      skill: Array.isArray(fm.skill) ? fm.skill : [],
       gear: Array.isArray(fm.gear) ? fm.gear : [],
       goal: fm.goal ?? '',
       motive: fm.motive ?? '',
