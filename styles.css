@@ -1,0 +1,935 @@
+/* ─── Loner 4e Plugin Styles ─────────────────────────────────────────────── */
+
+/* ── Oracle Widget ────────────────────────────────────────────────────────── */
+
+.loner-oracle-widget {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  background: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loner-oracle-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.loner-oracle-question-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.loner-oracle-question-input {
+  width: 100%;
+}
+
+.loner-oracle-mode-row {
+  display: flex;
+  gap: 6px;
+}
+
+.loner-oracle-mode-btn {
+  flex: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.loner-oracle-mode-btn--active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.loner-oracle-conflict-row {
+  font-size: 0.85em;
+}
+
+.loner-oracle-conflict-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.loner-oracle-opponent-section {
+  padding: 8px;
+  background: var(--background-primary);
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.loner-oracle-opponent-luck {
+  width: 60px;
+  margin-left: 6px;
+}
+
+.loner-oracle-opponent-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.loner-oracle-roll-btn {
+  padding: 8px 16px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.loner-oracle-roll-btn:hover {
+  background: var(--interactive-accent-hover);
+}
+
+/* ── Result Area ──────────────────────────────────────────────────────────── */
+
+.loner-oracle-result {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loner-oracle-dice-row {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.loner-oracle-mode-tag {
+  font-style: italic;
+}
+
+.loner-oracle-result-badge {
+  font-size: 1.4em;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.loner-oracle-result--yes {
+  color: var(--color-green, #4caf50);
+}
+
+.loner-oracle-result--no {
+  color: var(--color-red, #f44336);
+}
+
+.loner-oracle-result--and .loner-oracle-result-badge {
+  background: rgba(245, 197, 24, 0.15);
+  border-left: 3px solid #f5c518;
+}
+
+.loner-oracle-result--but .loner-oracle-result-badge {
+  background: rgba(255, 152, 0, 0.15);
+  border-left: 3px solid #ff9800;
+}
+
+.loner-oracle-result--twist .loner-oracle-result-badge {
+  background: rgba(156, 39, 176, 0.15);
+  border-left: 3px solid #9c27b0;
+  animation: loner-twist-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loner-twist-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.loner-oracle-twist-notice {
+  font-size: 0.9em;
+  color: #9c27b0;
+  font-weight: 600;
+}
+
+.loner-oracle-twist-icon {
+  margin-right: 4px;
+}
+
+.loner-oracle-intensity-note {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.loner-oracle-damage-row {
+  font-size: 1em;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.loner-oracle-damage--take {
+  color: var(--color-red, #f44336);
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.loner-oracle-damage--deal {
+  color: var(--color-green, #4caf50);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.loner-oracle-conflict-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.loner-oracle-inspiration-row {
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: 6px;
+}
+
+.loner-oracle-insert-row {
+  display: flex;
+  gap: 6px;
+}
+
+/* ── Protagonist Sidebar ──────────────────────────────────────────────────── */
+
+.loner-protagonist-view {
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.loner-section {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.loner-section-title {
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: var(--text-normal);
+  list-style: none;
+  user-select: none;
+}
+
+.loner-section-content {
+  padding: 10px 12px;
+}
+
+.loner-no-protagonist {
+  padding: 16px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ── Fields ───────────────────────────────────────────────────────────────── */
+
+.loner-field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.loner-field-label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.loner-field-input {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  padding: 4px 8px;
+  color: var(--text-normal);
+  font-size: 0.9em;
+}
+
+.loner-field-select {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  padding: 4px 8px;
+  color: var(--text-normal);
+  font-size: 0.9em;
+}
+
+/* ── Lists ────────────────────────────────────────────────────────────────── */
+
+.loner-list-group {
+  margin-bottom: 10px;
+}
+
+.loner-list-label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.loner-list-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────────────────── */
+
+.loner-tag-list {
+  margin-bottom: 8px;
+}
+
+.loner-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.loner-tag {
+  padding: 2px 8px;
+  background: var(--background-modifier-hover);
+  border-radius: 12px;
+  font-size: 0.85em;
+  color: var(--text-normal);
+}
+
+.loner-tag-add-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ── Luck Pips ────────────────────────────────────────────────────────────── */
+
+.loner-luck-pips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.loner-luck-pip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.loner-luck-pip--filled {
+  background: var(--color-green, #4caf50);
+  border-color: var(--color-green, #4caf50);
+}
+
+.loner-luck-pip:hover {
+  border-color: var(--interactive-accent);
+}
+
+.loner-luck-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.loner-luck-max-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loner-luck-max-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+/* ── Twist Counter ────────────────────────────────────────────────────────── */
+
+.loner-twist-counter {
+  cursor: default;
+}
+
+.loner-twist-counter--warning {
+  color: var(--color-orange, #ff9800) !important;
+  font-weight: 600;
+}
+
+.loner-twist-counter--trigger {
+  color: var(--color-red, #f44336) !important;
+  font-weight: 700;
+  animation: loner-twist-pulse 1s ease-in-out infinite;
+}
+
+.loner-twist-pips {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.loner-twist-pip {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  display: inline-block;
+}
+
+.loner-twist-pip--filled {
+  background: #9c27b0;
+  border-color: #9c27b0;
+}
+
+.loner-twist-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.loner-twist-warning .loner-section-title {
+  color: var(--color-orange, #ff9800);
+}
+
+.loner-twist-trigger .loner-section-title {
+  color: var(--color-red, #f44336);
+  animation: loner-twist-pulse 1s ease-in-out infinite;
+}
+
+/* ── Track Boxes ──────────────────────────────────────────────────────────── */
+
+.loner-track-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-muted);
+  display: inline-block;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.1s;
+  margin-right: 4px;
+}
+
+.loner-track-box--filled {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.loner-challenge-track,
+.loner-status-track {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.loner-track-boxes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+
+.loner-track-label-input {
+  font-weight: 600;
+  font-size: 0.9em;
+  border: none;
+  background: transparent;
+  border-bottom: 1px dashed var(--background-modifier-border);
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.loner-track-reversed-badge {
+  font-size: 0.75em;
+  color: var(--color-orange, #ff9800);
+  background: rgba(255, 152, 0, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.loner-track-completion {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.loner-track-complete {
+  color: var(--color-green, #4caf50);
+}
+
+.loner-status-track-header {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.loner-status-tag-label {
+  font-size: 0.8em;
+  color: var(--color-orange, #ff9800);
+  font-style: italic;
+  margin-right: 4px;
+}
+
+.loner-status-overcome {
+  font-size: 0.85em;
+  color: var(--color-red, #f44336);
+  font-weight: 600;
+}
+
+.loner-inline-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-secondary);
+}
+
+.loner-track-label {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+/* ── Leverage Section ─────────────────────────────────────────────────────── */
+
+.loner-leverage-desc {
+  color: var(--text-muted);
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.loner-leverage-held {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.loner-leverage-btn-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.loner-leverage-input-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+.loner-btn {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-size: 0.85em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loner-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+.loner-btn--primary {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.loner-btn--primary:hover {
+  background: var(--interactive-accent-hover);
+}
+
+.loner-btn--icon {
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+.loner-btn--add {
+  color: var(--text-accent);
+  font-size: 0.85em;
+}
+
+.loner-btn--danger {
+  color: var(--color-red, #f44336);
+  border-color: rgba(244, 67, 54, 0.3);
+}
+
+.loner-btn--danger:hover {
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.loner-btn--warning {
+  background: rgba(156, 39, 176, 0.1);
+  color: #9c27b0;
+  border-color: rgba(156, 39, 176, 0.3);
+}
+
+.loner-btn--link {
+  background: transparent;
+  border: none;
+  color: var(--text-accent);
+  padding: 2px 4px;
+  text-decoration: underline;
+}
+
+.loner-btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.loner-btn--tag-adv {
+  font-size: 0.7em;
+  padding: 1px 5px;
+  color: var(--color-green, #4caf50);
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.loner-btn--tag-dis {
+  font-size: 0.7em;
+  padding: 1px 5px;
+  color: var(--color-red, #f44336);
+  border-color: rgba(244, 67, 54, 0.3);
+}
+
+.loner-btn--active {
+  font-weight: 700;
+  border-color: var(--interactive-accent);
+}
+
+.loner-btn--insert {
+  margin-top: 8px;
+}
+
+/* ── Lonelog Badge ────────────────────────────────────────────────────────── */
+
+.loner-lonelog-badge {
+  font-size: 0.6em;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: 1px 4px;
+  border-radius: 3px;
+  vertical-align: super;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.loner-lonelog-preview {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 8px;
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* ── Track Form ───────────────────────────────────────────────────────────── */
+
+.loner-track-form {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Modals ───────────────────────────────────────────────────────────────── */
+
+.loner-inspiration-modal .modal-content,
+.loner-adventure-maker-modal .modal-content,
+.loner-meanwhile-modal .modal-content,
+.loner-living-world-modal .modal-content {
+  min-width: 400px;
+}
+
+.loner-insp-section {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.loner-insp-label {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.loner-insp-result {
+  font-size: 1.1em;
+  font-weight: 700;
+  display: block;
+  margin: 4px 0;
+  color: var(--text-accent);
+}
+
+.loner-insp-btn-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.loner-insp-combined {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.loner-insp-combined-text {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--text-accent);
+  letter-spacing: 0.05em;
+}
+
+.loner-insp-adj-toggle {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+
+.loner-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.loner-tab {
+  padding: 4px 12px;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid var(--background-modifier-border);
+  border-bottom: none;
+  background: var(--background-secondary);
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.loner-tab--active {
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+/* ── Adventure Maker Entries ─────────────────────────────────────────────── */
+
+.loner-am-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.loner-am-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  min-width: 90px;
+}
+
+.loner-am-value {
+  font-weight: 600;
+  flex: 1;
+  font-size: 0.9em;
+  color: var(--text-accent);
+}
+
+/* ── Meanwhile Modal ─────────────────────────────────────────────────────── */
+
+.loner-scene-roll {
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.loner-meanwhile-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loner-meanwhile-arrow {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.2em;
+}
+
+.loner-meanwhile-question {
+  font-style: italic;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.loner-meanwhile-yes,
+.loner-meanwhile-no {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.loner-meanwhile-no {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Scene Result Modal ──────────────────────────────────────────────────── */
+
+.loner-scene-result {
+  text-align: center;
+  padding: 12px;
+}
+
+.loner-scene-badge {
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.loner-scene-badge--dramatic {
+  color: var(--color-red, #f44336);
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.loner-scene-badge--quiet {
+  color: var(--color-green, #4caf50);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.loner-scene-badge--meanwhile {
+  color: #ff9800;
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.loner-scene-description {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* ── Living World Modal ──────────────────────────────────────────────────── */
+
+.loner-lw-entity-block {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.loner-lw-concept {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.loner-lw-old-tag {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.loner-lw-arrow {
+  color: var(--text-muted);
+}
+
+.loner-lw-textarea {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding: 8px;
+  font-family: var(--font-text);
+  resize: vertical;
+  margin-bottom: 8px;
+}
+
+.loner-lw-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  justify-content: space-between;
+}
+
+.loner-lw-summary {
+  background: var(--background-secondary);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 0.9em;
+}
+
+.loner-lw-summary-header {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.loner-lw-summary-line {
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  margin-bottom: 2px;
+}
+
+.loner-lw-mod-section {
+  margin-bottom: 10px;
+}
+
+/* ── Misc ─────────────────────────────────────────────────────────────────── */
+
+.loner-error {
+  color: var(--color-red, #f44336);
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+/* Callout types registered by the plugin */
+.callout[data-callout="oracle-yes"] {
+  --callout-color: 76, 175, 80;
+}
+.callout[data-callout="oracle-no"] {
+  --callout-color: 244, 67, 54;
+}
+.callout[data-callout="oracle-twist"] {
+  --callout-color: 156, 39, 176;
+}
+.callout[data-callout="twist"] {
+  --callout-color: 156, 39, 176;
+}
+.callout[data-callout="scene"] {
+  --callout-color: 33, 150, 243;
+}
+.callout[data-callout="inspiration"] {
+  --callout-color: 255, 152, 0;
+}
+.callout[data-callout="adventure-maker"] {
+  --callout-color: 0, 188, 212;
+}

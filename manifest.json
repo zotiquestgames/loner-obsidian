@@ -1,0 +1,11 @@
+{
+  "id": "loner-4e",
+  "name": "Loner 4e",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Obsidian plugin for playing Loner 4e solo tabletop RPG.",
+  "author": "zeruhur",
+  "authorUrl": "https://zotiquest.games",
+  "isDesktopOnly": false,
+  "main": "main.js"
+}
