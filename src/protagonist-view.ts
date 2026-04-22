@@ -87,7 +87,6 @@ export class ProtagonistView extends ItemView {
     const fields: Array<{ key: keyof ProtagonistData; label: string }> = [
       { key: 'name', label: 'Name' },
       { key: 'concept', label: 'Concept' },
-      { key: 'frailty', label: 'Frailty' },
       { key: 'goal', label: 'Goal' },
       { key: 'motive', label: 'Motive' },
       { key: 'nemesis', label: 'Nemesis' },
@@ -119,6 +118,10 @@ export class ProtagonistView extends ItemView {
 
     this.renderStringList(section, 'Gear', data.gear, async (arr) => {
       await this.plugin.protagonistSheet.write({ gear: arr });
+    });
+
+    this.renderStringList(section, 'Frailties', data.frailty, async (arr) => {
+      await this.plugin.protagonistSheet.write({ frailty: arr });
     });
   }
 

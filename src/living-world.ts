@@ -66,8 +66,9 @@ export class LivingWorldModal extends LonerModal {
 
       // Add Frailty (append or replace)
       this.makeAddField(container, 'Add Frailty', async (val) => {
-        this.pending.protagonist.frailty = val;
-        await this.plugin.protagonistSheet.write({ frailty: val });
+        const newFrailty = [...(data.frailty || []), val];
+        this.pending.protagonist.frailty = newFrailty;
+        await this.plugin.protagonistSheet.write({ frailty: newFrailty });
       });
 
       // Modify existing trait

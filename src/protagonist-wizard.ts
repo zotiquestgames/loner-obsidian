@@ -64,14 +64,14 @@ export class GenerateProtagonistModal extends LonerModal {
     contentEl.createEl('h3', { text: 'Identity' });
     const nameInput    = makeField(form, 'Name *',    'Zahra Nakajima');
     const conceptInput = makeField(form, 'Concept',   'Witty Street Cat');
-    const frailtyInput = makeField(form, 'Frailty',   'Merciful');
     const goalInput    = makeField(form, 'Goal',      'Obtain unknown technology');
     const motiveInput  = makeField(form, 'Motive',    'Feels responsible for home');
     const nemesisInput = makeField(form, 'Nemesis',   '');
 
     contentEl.createEl('h3', { text: 'Traits' });
-    const getSkills = makeListField(form, 'Skills', ['', '']);
-    const getGear   = makeListField(form, 'Gear',   ['', '']);
+    const getSkills   = makeListField(form, 'Skills',     ['', '']);
+    const getGear     = makeListField(form, 'Gear',       ['', '']);
+    const getFragilty = makeListField(form, 'Frailties',  ['']);
 
     contentEl.createEl('h3', { text: 'Stats' });
     const luckRow = form.createDiv({ cls: 'loner-field-row' });
@@ -102,29 +102,28 @@ export class GenerateProtagonistModal extends LonerModal {
       const name = nameInput.value.trim();
       if (!name) { new Notice('Name is required.'); return null; }
 
-      const luckMax = parseInt(luckMaxInput.value) || 6;
-      const skills  = getSkills();
-      const gear    = getGear();
+      const luckMax   = parseInt(luckMaxInput.value) || 6;
+      const skills    = getSkills();
+      const gear      = getGear();
+      const frailties = getFragilty();
 
       const lines: string[] = ['---', 'loner_protagonist: true'];
 
       lines.push(`name: ${JSON.stringify(name)}`);
       lines.push(`concept: ${JSON.stringify(conceptInput.value.trim())}`);
-      lines.push(`frailty: ${JSON.stringify(frailtyInput.value.trim())}`);
 
-      if (skills.length) {
-        lines.push('skill:');
-        for (const s of skills) lines.push(`  - ${JSON.stringify(s)}`);
-      } else {
-        lines.push('skill: []');
-      }
+      const arrayBlock = (key: string, arr: string[]): void => {
+        if (arr.length) {
+          lines.push(`${key}:`);
+          for (const v of arr) lines.push(`  - ${JSON.stringify(v)}`);
+        } else {
+          lines.push(`${key}: []`);
+        }
+      };
 
-      if (gear.length) {
-        lines.push('gear:');
-        for (const g of gear) lines.push(`  - ${JSON.stringify(g)}`);
-      } else {
-        lines.push('gear: []');
-      }
+      arrayBlock('skill', skills);
+      arrayBlock('gear', gear);
+      arrayBlock('frailty', frailties);
 
       lines.push(`goal: ${JSON.stringify(goalInput.value.trim())}`);
       lines.push(`motive: ${JSON.stringify(motiveInput.value.trim())}`);

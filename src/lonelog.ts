@@ -80,7 +80,7 @@ export class LonelogFormatter {
     const parts = [`PC:${data.name}`];
     if (data.concept) parts.push(`concept:${data.concept}`);
     if (data.skill?.length) parts.push(`skill:${data.skill.join(',')}`);
-    if (data.frailty) parts.push(`frailty:${data.frailty}`);
+    if (data.frailty?.length) parts.push(`frailty:${data.frailty.join(',')}`);
     if (data.gear?.length) parts.push(`gear:${data.gear.join(',')}`);
     parts.push(`luck:${data.luck}`);
     const tag = `[${parts.join('|')}]`;

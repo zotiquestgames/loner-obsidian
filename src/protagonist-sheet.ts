@@ -21,7 +21,7 @@ export class ProtagonistSheet {
       loner_protagonist: fm.loner_protagonist ?? true,
       name: fm.name ?? '',
       concept: fm.concept ?? '',
-      frailty: fm.frailty ?? '',
+      frailty: Array.isArray(fm.frailty) ? fm.frailty : (fm.frailty ? [String(fm.frailty)] : []),
       skill: Array.isArray(fm.skill) ? fm.skill : [],
       gear: Array.isArray(fm.gear) ? fm.gear : [],
       goal: fm.goal ?? '',

@@ -60,7 +60,7 @@ export interface ProtagonistData {
   loner_protagonist: boolean;
   name: string;
   concept: string;
-  frailty: string;
+  frailty: string[];
   skill: string[];
   gear: string[];
   goal: string;
